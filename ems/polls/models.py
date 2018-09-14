@@ -22,6 +22,10 @@ class Question(models.Model):
             self.pub_date <= timezone.now()
         ])
 
+    was_published_recently.admin_order_field = 'pub_date'
+    was_published_recently.boolean = True
+    was_published_recently.short_description = 'Published recently?'
+
 
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Choice(models.Model):
